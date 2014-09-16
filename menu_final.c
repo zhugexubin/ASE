@@ -19,7 +19,7 @@
  * Modularity
  */
 
-/* Attention: This program should compile and run in Linux System */
+/*************** Attention: This program should compile and run in Linux System *******************/
 
 #include <stdio.h>
 #include <stdlib.h>
