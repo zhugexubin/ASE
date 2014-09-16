@@ -1,7 +1,7 @@
 /**************************************************************************************************/
 /* Copyright (C) software design, SSE@USTC, 2014-2015                                             */
 /*                                                                                                */
-/*  FILE NAME             :  lab1.c                                                               */
+/*  FILE NAME             :  menu_final.c                                                         */
 /*  PRINCIPAL AUTHOR      :  zhugexubin                                                           */
 /*  SUBSYSTEM NAME        :  lab1                                                                 */
 /*  MODULE NAME           :  lab1                                                                 */
@@ -168,7 +168,8 @@ int Handler(void* cmd)
     pid = fork();
     mystrtok(argv, cmd);
     n = strlen((const char *)argv)/4;
-    switch(n){
+    switch(n)
+    {
         case 2: strcpy(agmt2, argv[1]);
         case 1: strcpy(agmt1, argv[0]);break;
         default:                       break;
