@@ -3,8 +3,8 @@
 /*                                                                                                */
 /*  FILE NAME             :  menu_final.c                                                         */
 /*  PRINCIPAL AUTHOR      :  zhugexubin                                                           */
-/*  SUBSYSTEM NAME        :  lab1                                                                 */
-/*  MODULE NAME           :  lab1                                                                 */
+/*  SUBSYSTEM NAME        :  menu                                                                 */
+/*  MODULE NAME           :  menu                                                                 */
 /*  LANGUAGE              :  C                                                                    */
 /*  TARGET ENVIRONMENT    :  ANY                                                                  */
 /*  DATE OF FIRST RELEASE :  2014/09/09                                                           */
