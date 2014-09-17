@@ -141,7 +141,8 @@ int Exit()
 }
 
 /* Split Command String */
-int mystrtok(char *argv[], char* string){
+int mystrtok(char *argv[], char* string)
+{
     
     int i=0;
     char delim[]=" ";
