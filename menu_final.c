@@ -68,7 +68,7 @@ static tDataNode head[] =
 void BeginCmdLine()
 {
     tDataNode *p = NULL;
-    /* Command Line begins */
+    
     while(1)
     {
         char cmd[CMD_MAX_LEN];
