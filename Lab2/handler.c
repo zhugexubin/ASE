@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include "def.h"
+#include "handler.h"
+
+/* Help Handler */
+int Help()
+{
+	ShowAllCmd(head);
+	return 0;
+}
+
+/* Exit Handler */
+int Exit()
+{
+    exit(0);
+}
+
+/* Split Command String */
+int mystrtok(char *argv[], char* string)
+{
+    
+    int i=0;
+    char delim[]=" ";
+    char *p;
+    argv[0] = strtok(string,delim);
+    while(argv[i]!=NULL)
+    {
+        argv[++i] = strtok(NULL,delim);
+    }
+    
+    return 0;
+}
+
+/* Universal Handler */
+int Handler(void* cmd)
+{
+    pid_t pid;
+    int n;
+    char* argv[NUM];
+    char realCmdOne[CMD_MAX_LEN];
+    char realCmdTwo[CMD_MAX_LEN];
+    char agmt1[LNUM];
+    char agmt2[LNUM];
+    strcpy(realCmdOne, CMD_PATH_ONE);
+    strcpy(realCmdTwo, CMD_PATH_TWO);
+ 
+    pid = fork();
+    mystrtok(argv, cmd);
+    n = strlen((const char *)argv)/4;
+    switch(n)
+    {
+        case 2: strcpy(agmt2, argv[1]);
+        case 1: strcpy(agmt1, argv[0]);break;
+        default:                       break;
+    }
+
+    strcat(realCmdOne, cmd);
+    strcat(realCmdTwo, cmd);
+    if(pid==-1) 
+    {
+        printf("fork failure!\n");
+    }
+    else if(pid==0) 
+    {
+        switch(n)
+        {
+            case 2: execl(realCmdOne, agmt1, agmt2, NULL, NULL);
+                    execl(realCmdTwo, agmt1, agmt2, NULL, NULL);break;
+            case 1: execl(realCmdOne, agmt1, NULL, NULL, NULL);
+                    execl(realCmdTwo, agmt1, NULL, NULL, NULL); break;
+            default:                                            break;
+        }
+    }
+    else 
+    {
+        wait();
+    } 
+}
